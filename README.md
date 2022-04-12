@@ -1,49 +1,51 @@
-Implementation.
+# Getting Started with React Giphy API Implementation
 
-1. This task is implemented by two ways. On load I have used pagination to fetch the images. I have used pagination to avoid multiple request to the server as treading API limit is 50.
-In pagination we get totol image count is more than 4000
-2. Giphy also provider react component to show the images in grid format. 
-On search, 
+Approach :-
+
+1. Pagination
+ 
+   - I have used pagination to show treading gif images. To handle large amount of data pagination is better approach to avoid multiple request to the server to fetch records.
+
+   - In Giphy API maximum limit is to fetch data is 50. Total images in treading API is more than 3000. For this scenario, implementing virtual scrolling api, will make lot of request to server.
+
+   - Gifs images take time to load. So User experience in virual scrolling will not be good.
+
+2. Giphy react component
+
+    - For search image functionality, I have used Giphy react component to show the images.
+
+    - Giphy libraries provided implementation to show gifs images in grid component. But on every scroll event, it fetching data from server.
+
+3. Material UI library
+
+   - Used Material Ui library for HTML component implementation. As this library provide all the better feature to HTML component.
+
+   - It is more responsive.
+
+
+Features implemented :-
+  
+  1. Show treading images from treading API from Giphy with pagination.
+  2. On Image click open modal to show renditions images.
+  3. Search image from search API from Giphy with Giphy react component grid implementation.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
+### `yarn`
+
+Install all the dependecies from Package json.
 ### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
