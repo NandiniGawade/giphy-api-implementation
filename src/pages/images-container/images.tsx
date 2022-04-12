@@ -3,10 +3,17 @@ import { FC } from "react";
 import getImages from "../../components/image-list";
 import { ImagePanel } from "../image-panel/image-panel";
 import { Image } from "../../interfaces/image";
-import { Box, CircularProgress, Modal, Pagination, Typography } from "@mui/material";
+import { Box, Modal, Pagination, Typography } from "@mui/material";
 import { KeyValue } from "../../interfaces/KeyValue";
-import "./images.css"
+import "./images.css";
 import { CenteredCircularProgress } from "../loader/centered-circular-progress";
+import { RENDITIONS_IMAGES } from "../../constants/app.constant";
+
+/**
+ * This component will render images from Giphy treading API.
+ * Pagination is implemented, to avoid multiple request to the Giphy server.
+ * Treading API will fetch 50 records each time. This is maximum limit.
+ */
 
 export const Images: FC = () => {
   const [imageList, setImageList] = useState<KeyValue>([]);
@@ -15,6 +22,7 @@ export const Images: FC = () => {
   const [images, setImages] = useState<any>([]);
   const [renditionImages, setRenditionImages] = useState<Image[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(1);
 
   const items: Image[] = imageList?.map((item: string, index: number) => {
     return {
@@ -26,7 +34,7 @@ export const Images: FC = () => {
   const handleOpenImageModal = (id: number, isRendition: boolean) => {
     if(isRendition) {
       let urls:Image[] = [];
-      Object.values(images[id]).forEach((val:any, index: number) => {
+      Object.values(images[id]).forEach((val: any, index: number) => {
         if(val.url !== undefined) {
           urls.push({
             id: index,
@@ -53,7 +61,7 @@ export const Images: FC = () => {
           setImages(response?.imageList);
           setIsLoading(false);
       }).catch(error => {
-          console.log(error)
+          console.error(error)
       }); 
   }
   
@@ -73,10 +81,11 @@ export const Images: FC = () => {
     p: 4,
 };
 
-const handleChange = (event:any, value:number) => {
+const handleChange = (_event: any, value:number) => {
   if(value === 1) {
     fetchDate(0)
   } else {
+    setPage(value)
     fetchDate(( images.length ) * ( value - 1))
   }
 }
@@ -88,7 +97,7 @@ const handleChange = (event:any, value:number) => {
       !isLoading && 
       <>
         <ImagePanel images={items} handleOpenImageModal={handleOpenImageModal} isRendition={true}/>
-        <Pagination count={totalcount} variant="outlined" shape="rounded" onChange={handleChange} className="pagination-container"/> 
+        <Pagination page={page} count={totalcount} variant="outlined" shape="rounded" onChange={handleChange} className="pagination-container"/> 
       </>
     }
       <Modal
@@ -98,7 +107,7 @@ const handleChange = (event:any, value:number) => {
             aria-describedby="modal-modal-description">
             <Box sx={style}>
                 <Typography id="modal-modal-title" variant="h6" component="h2" className="modal-header">
-                  Renditions Images
+                  {RENDITIONS_IMAGES}
                 </Typography>
                 <div>
                   <ImagePanel images={renditionImages} handleOpenImageModal={handleOpenImageModal} isRendition={false}/>

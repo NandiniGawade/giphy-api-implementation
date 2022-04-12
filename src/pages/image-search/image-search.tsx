@@ -1,10 +1,15 @@
 import { FC, useState } from "react";
-import "./image-search.css"
+import "./image-search.css";
 import { Button, Paper, TextField } from "@mui/material";
 
 type Props = {
     handleSearchImages: (searchValue: string) => void,
 };
+
+/**
+ * This is container for search component. It will have search text box and search.
+ * This will return search value to image container.
+ */
 const ImageSearch: FC<Props> = ({handleSearchImages}) => {
     const [searchValue, setSearchValue] = useState<string>("");
 
@@ -12,11 +17,6 @@ const ImageSearch: FC<Props> = ({handleSearchImages}) => {
         setSearchValue(e.target.value);
     };
 
-    
-    // const cancelSearch = () => {
-    //     setSearched("");
-    //     requestSearch(searched);
-    // };
     return (
         <>
         <Paper className="search">
@@ -26,7 +26,12 @@ const ImageSearch: FC<Props> = ({handleSearchImages}) => {
                 className="search-text-field"
                 value={searchValue} 
                 onChange={handleChange}/>
-            <Button variant="outlined" className="btn" onClick={() => handleSearchImages(searchValue)}> Search </Button>
+            <Button 
+                variant="outlined" 
+                className="btn" 
+                onClick={() => handleSearchImages(searchValue)}> 
+                Search 
+            </Button>
         </Paper>
         </>    
     )

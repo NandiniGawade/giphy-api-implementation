@@ -8,6 +8,13 @@ type Props = {
     handleOpenImageModal: (id: number, isRendition: boolean) => void,
     isRendition: boolean
 };
+
+/**
+ * This functional component will used to render the images.
+ * Using Masonry react virtualized library. This will improved the performace of gif loading images.
+ * It only render images which is present on UI.
+ */
+
 export const ImagePanel:FC<Props> = ({images, handleOpenImageModal, isRendition}) => {
     const card = ({ data: { id, name, src, width, height } } : any) => {
         return (

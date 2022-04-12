@@ -5,7 +5,7 @@ export type ImageResponse = {
   errorFlag: boolean,
   data: Object,
   error: unknown
-  imageList?: KeyValue[],
+  imageList?: Object,
   originalImageList?: string[],
   pagination?: KeyValue
 };
@@ -22,7 +22,7 @@ const getImages = async (offset: number): Promise<ImageResponse> => {
   try {
     const response = await giphyFetch.trending({ offset });
     const imageList =response.data.map((item: KeyValue) => item.images);
-    const originalImageList = imageList.map((item: KeyValue) => item.original.url);
+    const originalImageList: string[] = imageList.map((item) => item.original.url);
     return {
         errorFlag: false,
         imageList,
