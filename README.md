@@ -2,7 +2,7 @@
 
 ## Approach :-
 
-# Pagination
+1. Pagination
  
    - I have used pagination to show treading gif images. To handle large amount of data pagination is better approach to avoid multiple request to the server to fetch records.
 
@@ -10,13 +10,13 @@
 
    - Gifs images take time to load. So User experience in virual scrolling will not be good.
 
-# Giphy react component
+2. Giphy react component
 
     - For search image functionality, I have used Giphy react component to show the images.
 
     - Giphy libraries provided implementation to show gifs images in grid component. But on every scroll event, it fetching data from server.
 
-# Material UI library
+3. Material UI library
 
    - Used Material Ui library for HTML component implementation. As this library provide all the better feature to HTML component.
 
