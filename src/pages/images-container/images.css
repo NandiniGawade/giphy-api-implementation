@@ -1,0 +1,14 @@
+.modal-header {
+    background-color: #282c34;
+    min-height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    color: white;
+}
+
+.pagination-container {
+    margin: 15px;
+    float: right;
+}

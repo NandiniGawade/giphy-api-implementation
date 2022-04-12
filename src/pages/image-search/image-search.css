@@ -1,0 +1,15 @@
+.btn {
+    width: 15%;
+    height: 48px;
+    margin-left: 10px !important;
+}
+
+.search-text-field {
+    width: 70%;
+    margin: 10px;
+}
+
+.search {
+    margin: 10px;
+    height: 60px;
+}
