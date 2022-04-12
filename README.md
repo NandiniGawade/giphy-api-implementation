@@ -1,8 +1,8 @@
 # Getting Started with React Giphy API Implementation
 
-Approach :-
+## Approach :-
 
-1. Pagination
+# Pagination
  
    - I have used pagination to show treading gif images. To handle large amount of data pagination is better approach to avoid multiple request to the server to fetch records.
 
@@ -10,20 +10,20 @@ Approach :-
 
    - Gifs images take time to load. So User experience in virual scrolling will not be good.
 
-2. Giphy react component
+# Giphy react component
 
     - For search image functionality, I have used Giphy react component to show the images.
 
     - Giphy libraries provided implementation to show gifs images in grid component. But on every scroll event, it fetching data from server.
 
-3. Material UI library
+# Material UI library
 
    - Used Material Ui library for HTML component implementation. As this library provide all the better feature to HTML component.
 
    - It is more responsive.
 
 
-Features implemented :-
+## Features implemented :-
   
   1. Show treading images from treading API from Giphy with pagination.
   2. On Image click open modal to show renditions images.
